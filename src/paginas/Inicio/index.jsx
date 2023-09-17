@@ -1,5 +1,19 @@
-
+import Banner from "componentes/Banner";
+import posts from "json/json/posts.json";
+import Post from "componentes/Post";
+import styles from "./Inicio.module.css"
 
 export default function Inicio() {
-    return <h1>Ola Mundo! - Pagina de Inicio do projeto</h1>
-};
+  return (
+    <main>
+      <Banner />
+      <ul className={styles.posts}>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <Post post={post} />
+          </li>
+        ))}
+      </ul>
+    </main>
+  );
+}
